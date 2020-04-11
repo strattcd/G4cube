@@ -11,6 +11,7 @@ class ExG4PhysicsList00 : public G4VUserPhysicsList
 
     virtual void ConstructParticle();
     virtual void ConstructProcess();
+    virtual void ConstructEM();
 };
 
 #endif

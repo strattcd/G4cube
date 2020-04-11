@@ -5,7 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "E:/GEANT4/G4source/geant4.10.05-install/include/Geant4",
-                "E:/GEANT4/G4sims/G4Example1/include"
+                "E:/GEANT4/G4sims/G4cube/include"
             ],
             "defines": [
                 "_DEBUG",

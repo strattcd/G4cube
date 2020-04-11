@@ -13,8 +13,8 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 ExG4PrimaryGeneratorAction01::ExG4PrimaryGeneratorAction01()
-: G4VUserPrimaryGeneratorAction(),
-  fParticleGun(0),  
+  : G4VUserPrimaryGeneratorAction(),
+    fParticleGun(0)
 {
   G4int nofParticles = 1;
   fParticleGun  = new G4ParticleGun(nofParticles);
@@ -27,13 +27,6 @@ ExG4PrimaryGeneratorAction01::ExG4PrimaryGeneratorAction01()
   fParticleGun->SetParticleDefinition(particle);
   fParticleGun->SetParticleMomentumDirection(G4ThreeVector(-1.,0.,0.));
   fParticleGun->SetParticleEnergy(6.*MeV);
-
-  G4double size = 6; 
-  G4double x0 = 3.0;
-  G4double y0 = size * (G4UniformRand()-0.5);
-  G4double z0 = size * (G4UniformRand()-0.5);
-  
-  fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
 
 }
 
@@ -49,6 +42,13 @@ ExG4PrimaryGeneratorAction01::~ExG4PrimaryGeneratorAction01()
 void ExG4PrimaryGeneratorAction01::GeneratePrimaries(G4Event* anEvent)
 {
   // this function is called at the beginning of event
+
+  G4double size = 6; 
+  G4double x0 = 3.0;
+  G4double y0 = size * (G4UniformRand()-0.5);
+  G4double z0 = size * (G4UniformRand()-0.5);
+  
+  fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
 
   fParticleGun->GeneratePrimaryVertex(anEvent);
 }
