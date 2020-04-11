@@ -6,8 +6,10 @@
 
 
  #include "ExG4DetectorConstruction01.hh"
- #include "ExG4PhysicsList00.hh"
+ //#include "ExG4PhysicsList00.hh"
  #include "ExG4PrimaryGeneratorAction01.hh"
+
+ #include "QBBC.hh"
 
  int main(int argc,char** argv)
  {
@@ -16,7 +18,12 @@
 
   // set mandatory initialization classes
   runManager->SetUserInitialization(new ExG4DetectorConstruction01);
-  runManager->SetUserInitialization(new ExG4PhysicsList00);
+
+  // Physics list
+  G4VModularPhysicsList* physicsList = new QBBC;
+  physicsList->SetVerboseLevel(1);
+  runManager->SetUserInitialization(physicsList);
+  //runManager->SetUserInitialization(new ExG4PhysicsList00);
 
   // set mandatory user action class
   runManager->SetUserAction(new ExG4PrimaryGeneratorAction01);

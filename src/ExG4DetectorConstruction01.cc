@@ -42,7 +42,9 @@ G4VPhysicalVolume* ExG4DetectorConstruction01::Construct()
     G4double cube_hz = 0.5*m;        
     G4Box* cube
         = new G4Box("Cube", cube_hx, cube_hy, cube_hz);
+    
     G4Material* cube_mat = nist->FindOrBuildMaterial("G4_WATER");
+
     G4LogicalVolume* cubeLog
     = new G4LogicalVolume(cube, cube_mat, "Cube");
     G4double pos_x =  0.0*meter;

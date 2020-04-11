@@ -25,9 +25,7 @@ ExG4PrimaryGeneratorAction01::ExG4PrimaryGeneratorAction01()
   G4ParticleDefinition* particle
     = particleTable->FindParticle(particleName="gamma");
   fParticleGun->SetParticleDefinition(particle);
-  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(-1.,0.,0.));
-  fParticleGun->SetParticleEnergy(6.*MeV);
-
+  fParticleGun->SetParticleEnergy(1.0*MeV);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -41,15 +39,12 @@ ExG4PrimaryGeneratorAction01::~ExG4PrimaryGeneratorAction01()
 
 void ExG4PrimaryGeneratorAction01::GeneratePrimaries(G4Event* anEvent)
 {
-  // this function is called at the beginning of event
-
-  G4double size = 6; 
-  G4double x0 = 3.0;
-  G4double y0 = size * (G4UniformRand()-0.5);
-  G4double z0 = size * (G4UniformRand()-0.5);
-  
-  fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
-
+  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(1.0,0.0,0.0));
+  G4double size = 1.0; 
+  G4double x0 = -3.0;
+  G4double y0 = size *  (G4UniformRand()-0.5);
+  G4double z0 = size *  (G4UniformRand()-0.5);
+  fParticleGun->SetParticlePosition(G4ThreeVector(x0*m,y0*m,z0*m));
   fParticleGun->GeneratePrimaryVertex(anEvent);
 }
 
