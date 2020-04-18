@@ -30,7 +30,6 @@ target_link_libraries(cube ${Geant4_LIBRARIES})
 
 # (6)
 set(CUBE_SCRIPTS
-  init_vis.mac
   vis.mac  
   )
 
