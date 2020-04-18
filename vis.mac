@@ -9,7 +9,7 @@
 /vis/drawVolume
 #
 # Specify view angle:
-/vis/viewer/set/viewpointThetaPhi 90. 180.
+/vis/viewer/set/viewpointThetaPhi 120 150
 #
 # Draw smooth trajectories at end of event, showing trajectory points
 # as markers 2 pixels wide:
