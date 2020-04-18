@@ -5,7 +5,7 @@
  #include "G4UIExecutive.hh"
 
  #include "ExG4DetectorConstruction01.hh"
- #include "ExG4PrimaryGeneratorAction01.hh"
+ #include "ExG4ActionInitialization01.hh"
 
  #include "ExG4PhysicsList00.hh"
  //#include "QBBC.hh"
@@ -27,13 +27,13 @@
 
   // Physics list
   runManager->SetUserInitialization(new ExG4PhysicsList00);
-  
+
   //G4VModularPhysicsList* physicsList = new QBBC;
   //physicsList->SetVerboseLevel(0);
   //runManager->SetUserInitialization(physicsList);
   
   // set mandatory user action class
-  runManager->SetUserAction(new ExG4PrimaryGeneratorAction01);
+  runManager->SetUserInitialization(new ExG4ActionInitialization01);
 
   // initialize G4 kernel
   runManager->Initialize();
